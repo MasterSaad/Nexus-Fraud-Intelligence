@@ -1,6 +1,6 @@
 <div align="center">
 <p align="center">
-  <img src="https://i.ibb.co/C5WPKG9x/Chat-GPT-Image-Jul-17-2026-08-00-03-PM.png" alt="Nexus Fraud Intelligence" width="850">
+  <img src="https://i.ibb.co/KxgD3tX5/Chat-GPT-Image-Jul-17-2026-08-00-03-PM.png" alt="Nexus Fraud Intelligence" width="850">
 </p>
 
 
