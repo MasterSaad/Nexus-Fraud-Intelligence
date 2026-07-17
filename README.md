@@ -1,11 +1,21 @@
 <div align="center">
 
-# 🛡️ Nexus Fraud Intelligence
+# Nexus Fraud Intelligence
+
+> AI-powered Financial Fraud Investigation Platform using Graph Intelligence and Explainable Risk Scoring.
+
+<p align="center">
+
+🌐 **Live Demo**  
+https://nexus-fraud-intelligencezip--hazem118.replit.app
+
+</p>
 
 ### Explainable financial fraud investigation through transparent risk scoring, interactive graph analysis, and structured analyst reports.
 
 *From a suspicious transaction to connected context, evidence, risk, and an investigation-ready report — in one workflow.*
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://nexus-fraud-intelligencezip--hazem118.replit.app)
 [![Status](https://img.shields.io/badge/Status-Hackathon%20MVP-7C3AED?style=for-the-badge)](#implementation-status)
 [![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](#technology-stack)
 [![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](#technology-stack)
@@ -490,31 +500,7 @@ The report includes:
 
 ---
 
-## API Reference
-
-The backend identifies itself as **Nexus Fraud Intelligence API v0.4.0**.
-
-When running locally:
-
-- Swagger UI: `http://127.0.0.1:8000/docs`
-- ReDoc: `http://127.0.0.1:8000/redoc`
-- Health check: `http://127.0.0.1:8000/api/health`
-
-### Endpoints
-
-| Method | Endpoint | Purpose |
-|---|---|---|
-| `GET` | `/` | Project, status, version, and team information |
-| `GET` | `/api/health` | Basic service health response |
-| `GET` | `/api/dataset/summary` | Processed PaySim dataset summary |
-| `GET` | `/api/dashboard` | Dashboard metrics and prototype validation summary |
-| `GET` | `/api/alerts?limit=20` | Balanced selection of risk alerts |
-| `GET` | `/api/demo/case` | Highest-scoring PaySim-labeled fraud case for demonstration |
-| `GET` | `/api/cases/{case_id}` | Transaction, balances, analysis, and validation details |
-| `GET` | `/api/cases/{case_id}/graph` | Cytoscape-ready graph elements for the selected case |
-| `POST` | `/api/cases/{case_id}/generate-report` | Structured investigation report |
-
-### Example: case analysis
+## Example: case analysis
 
 ```json
 {
@@ -542,15 +528,6 @@ When running locally:
     "warning": "PaySim labels were not used to calculate the Nexus score."
   }
 }
-```
-
-### Example: quick API checks
-
-```bash
-curl http://127.0.0.1:8000/api/health
-curl http://127.0.0.1:8000/api/dashboard
-curl "http://127.0.0.1:8000/api/alerts?limit=20"
-curl http://127.0.0.1:8000/api/demo/case
 ```
 
 ---
@@ -598,171 +575,6 @@ nexus-fraud-intelligence/
 
 > [!NOTE]
 > The raw PaySim CSV is hundreds of megabytes and should normally stay outside the Git repository. Commit the preparation script and, if dataset terms permit, the much smaller processed sample. Otherwise document how judges can generate it locally.
-
----
-
-## Run Locally
-
-### Prerequisites
-
-- Python 3.11 or newer
-- Node.js 18 or newer
-- npm
-- Git
-- PaySim raw CSV only if you need to regenerate the processed sample
-
-### 1. Clone the repository
-
-```bash
-git clone <YOUR_REPOSITORY_URL>
-cd nexus-fraud-intelligence
-```
-
-### 2. Create the expected backend directories
-
-```bash
-mkdir -p backend/data/raw backend/data/processed
-```
-
-Place the source files in the structure shown above. Ensure the uploaded filenames are normalized before committing, for example:
-
-```text
-main.py
-fraud_engine.py
-report_generator.py
-prepare_paysim.py
-requirements.txt
-```
-
-### 3. Create and activate a Python environment
-
-#### macOS / Linux
-
-```bash
-cd backend
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-#### Windows PowerShell
-
-```powershell
-cd backend
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-### 4. Install backend dependencies
-
-```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-### 5. Prepare the dataset
-
-#### Option A — processed sample is already included
-
-If these files already exist, skip directly to the backend start command:
-
-```text
-backend/data/processed/paysim_sample.csv
-backend/data/processed/summary.json
-```
-
-#### Option B — regenerate from the raw PaySim CSV
-
-Place the raw file at:
-
-```text
-backend/data/raw/paysim.csv
-```
-
-Then run:
-
-```bash
-python prepare_paysim.py
-```
-
-Expected output files:
-
-```text
-backend/data/processed/paysim_sample.csv
-backend/data/processed/summary.json
-```
-
-### 6. Start the FastAPI backend
-
-From the `backend/` directory:
-
-```bash
-uvicorn main:app --reload --host 127.0.0.1 --port 8000
-```
-
-Verify the service:
-
-```text
-http://127.0.0.1:8000/api/health
-http://127.0.0.1:8000/docs
-```
-
-### 7. Install and start the frontend
-
-Open a second terminal:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Open:
-
-```text
-http://127.0.0.1:5173
-```
-
-The current frontend expects the API at:
-
-```text
-http://127.0.0.1:8000
-```
-
-The backend CORS configuration currently allows:
-
-```text
-http://localhost:5173
-http://127.0.0.1:5173
-```
-
-### 8. Production frontend build
-
-```bash
-cd frontend
-npm run build
-npm run preview
-```
-
-### Local smoke-test checklist
-
-- [ ] `/api/health` returns `healthy`.
-- [ ] `/api/dashboard` returns sample metrics.
-- [ ] `/api/demo/case` returns a Critical demonstration case.
-- [ ] The dashboard shows alerts.
-- [ ] Selecting an alert changes the case analysis.
-- [ ] The graph displays account and transaction nodes.
-- [ ] “Generate Investigation Report” returns and displays a report.
-
-### Troubleshooting
-
-| Symptom | Likely cause | Resolution |
-|---|---|---|
-| `Processed dataset sample was not found` | Preparation output is missing | Place `paysim.csv` under `backend/data/raw/` and run `python prepare_paysim.py`. |
-| Frontend shows a network error | FastAPI is not running at port 8000 | Start Uvicorn and verify `/api/health`. |
-| Browser reports a CORS error | Frontend is running on a different origin | Use port 5173 locally or update the CORS allow-list. |
-| `Case not found` | Invalid or stale case ID | Load a valid ID from `/api/alerts` or `/api/demo/case`. |
-| Graph is empty | Case request failed or processed data is absent | Check backend logs and graph endpoint response. |
-| Git rejects the raw dataset | Raw CSV is too large for a normal commit | Keep it local, use documented download/preparation steps, or use an approved large-file strategy. |
 
 ---
 
