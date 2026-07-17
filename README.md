@@ -1,4 +1,8 @@
 <div align="center">
+<p align="center">
+  <img src="https://i.imgur.com/WmimGth.jpeg" alt="Nexus Fraud Intelligence" width="850">
+</p>
+
 
 # Nexus Fraud Intelligence
 
