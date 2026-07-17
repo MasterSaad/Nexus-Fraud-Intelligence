@@ -1,6 +1,6 @@
 <div align="center">
 <p align="center">
-  <img src="https://i.imgur.com/WmimGth.jpeg" alt="Nexus Fraud Intelligence" width="850">
+  <img src="https://i.imgur.com/mgWsqW1.jpeg" alt="Nexus Fraud Intelligence" width="850">
 </p>
 
 
