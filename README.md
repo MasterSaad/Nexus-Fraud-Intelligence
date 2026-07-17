@@ -52,7 +52,6 @@ https://nexus-fraud-intelligencezip--hazem118.replit.app
 - [User Experience](#user-experience)
 - [API Reference](#api-reference)
 - [Project Structure](#project-structure)
-- [Run Locally](#run-locally)
 - [Demo Script](#demo-script)
 - [Design Principles](#design-principles)
 - [Known Limitations](#known-limitations)
