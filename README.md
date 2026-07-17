@@ -26,7 +26,7 @@ https://nexus-fraud-intelligencezip--hazem118.replit.app
 [![Graph](https://img.shields.io/badge/Graph-Cytoscape.js-14B8A6?style=for-the-badge)](#graph-investigation-model)
 [![Dataset](https://img.shields.io/badge/Dataset-PaySim-172554?style=for-the-badge)](#dataset-and-prototype-validation)
 
-[📄 Hackathon Presentation](./Nexus%20Fraud%20Intelligence.pdf) · [🏗️ Architecture](#system-architecture) · [⚙️ API Reference](#api-reference) · [🚀 Run Locally](#run-locally)
+[📄 Hackathon Presentation](./Nexus%20Fraud%20Intelligence.pdf) · [🏗️ Architecture](#system-architecture)
 
 </div>
 
